@@ -2,6 +2,7 @@ import React from 'react';
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Home() {
   const [gender, setGender] = useState("");
@@ -35,19 +36,24 @@ export default function Home() {
       alert('Failed to generate ideas, try later');
     } finally {
       setLoading(false);
+      <Link to='section1'></Link>
     }
   }
 
   return (
     <div>
       <Head>
-        <title>Gift Generator</title>
+        <title>Last Minute Gift Ideas</title>
         <link rel="icon" href="/gift.png" />
       </Head>
 
       <main className={styles.main}>
-        <h3>🎁 Gift Generator</h3>
-        <form onSubmit={onSubmit}>
+        <h1>🎁</h1>
+        <h3>Last Minute Gift Ideas</h3>
+
+        {!loading ? (
+          //display form
+          <form onSubmit={onSubmit}>
           <label>For who is the gift?</label>
           <select
             name="gender"
@@ -103,12 +109,20 @@ export default function Home() {
           />
           <input type="submit" value="Generate Gift Ideas" />
         </form>
-        {loading && (
+        ) : // display loading image and link to reset form
+        <div>
             <img src="/loading.gif" className={styles.loading} />
-        )}
+            <h6>We are loading your last minute gift ideas!</h6>
+        </div>
+        }
+        
+
         {result && (
+
+        
         <div 
           className={styles.result}
+          id='section1'
           dangerouslySetInnerHTML={{ __html: result }}
         />
         )}

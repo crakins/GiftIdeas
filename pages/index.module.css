@@ -55,7 +55,7 @@
 .main input[type="number"],
 .main select {
   padding: 12px 16px;
-  border: 1px solid #10a37f;
+  border: 1px solid green;
   border-radius: 4px;
   margin-bottom: 12px;
   margin-top: 4px;
@@ -71,7 +71,7 @@
 .main input[type="submit"] {
   padding: 12px 0;
   color: #fff;
-  background-color: #10a37f;
+  background-color: green; 
   border: none;
   border-radius: 4px;
   text-align: center;
@@ -80,4 +80,9 @@
 .main .result {
   font-weight: normal;
   margin-top: 40px;
+}
+
+.main .heroImage {
+  width: 100px;
+  margin-top: 20px;
 }

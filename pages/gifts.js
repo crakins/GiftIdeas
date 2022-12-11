@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Text } from 'react';
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { TbChristmasTree } from 'react-icons/tb';
+
 
 export default function Home() {
   const [gender, setGender] = useState("");
@@ -36,7 +37,6 @@ export default function Home() {
       alert('Failed to generate ideas, try later');
     } finally {
       setLoading(false);
-      <Link to='section1'></Link>
     }
   }
 
@@ -48,7 +48,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>🎁</h1>
+      <TbChristmasTree 
+        size='100px' 
+        color='green'
+        />
         <h3>Last Minute Gift Ideas</h3>
 
         {!loading ? (
@@ -119,12 +122,13 @@ export default function Home() {
 
         {result && (
 
-        
-        <div 
-          className={styles.result}
-          id='section1'
-          dangerouslySetInnerHTML={{ __html: result }}
-        />
+        <><div className={styles.result}>
+            
+          </div>
+          <div
+              className={styles.result}
+              dangerouslySetInnerHTML={{ __html: result }} />
+        </>
         )}
       </main>
     </div>

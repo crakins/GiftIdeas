@@ -41,12 +41,12 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Christmas Gift Generator</title>
+        <title>Gift Generator</title>
         <link rel="icon" href="/gift.png" />
       </Head>
 
       <main className={styles.main}>
-        <h3>🎁 Christmas Gift Generator 🎁</h3>
+        <h3>🎁 Gift Generator</h3>
         <form onSubmit={onSubmit}>
           <label>For who is the gift?</label>
           <select
@@ -55,13 +55,14 @@ export default function Home() {
             value={gender}
             onChange={(e) => setGender(e.target.value)}
           >
-            <option value="man">Man</option>
-            <option value="woman">Woman</option>
+            <option value="man">Male</option>
+            <option value="woman">Female</option>
           </select>
 
-          <label>Age</label>
+          <label>Age*</label>
           <input
             type="number"
+            required
             min={1}
             max={99}
             name="age"
@@ -70,9 +71,10 @@ export default function Home() {
             onChange={(e) => setAge(Number.parseInt(e.target.value))}
           />
 
-          <label>Price from</label>
+          <label>Price from*</label>
           <input
             type="number"
+            required
             min={1}
             name="priceMin"
             placeholder="Enter the minimum price"
@@ -80,9 +82,10 @@ export default function Home() {
             onChange={(e) => setPriceMin(Number.parseInt(e.target.value))}
           />
 
-          <label>Price to</label>
+          <label>Price to*</label>
           <input
             type="number"
+            required
             min={1}
             name="priceMax"
             placeholder="Enter the maximum price"
@@ -98,13 +101,10 @@ export default function Home() {
             value={hobbies}
             onChange={(e) => setHobbies(e.target.value)}
           />
-          <input type="submit" value="Generate gift ideas" />
+          <input type="submit" value="Generate Gift Ideas" />
         </form>
         {loading && (
-          <div>
-            <h3>Looking for the best gift ideas 🎁 💡</h3>
             <img src="/loading.gif" className={styles.loading} />
-          </div>
         )}
         {result && (
         <div 

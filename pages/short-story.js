@@ -87,7 +87,7 @@ export default function Home() {
           >
             <option value="happy">Happy</option>
             <option value="sad">Sad</option>
-            <option value="violent">Violent</option>
+            <option value="violent">Romantic</option>
           </select>
 
           <label>Location</label>

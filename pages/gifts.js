@@ -22,6 +22,7 @@ export default function Home() {
       return;
     }
     setLoading(true);
+    setResult(null);
 
     try {
       const response = await fetch("/api/generate-gifts", {

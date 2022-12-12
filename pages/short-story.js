@@ -21,6 +21,7 @@ export default function Home() {
       return;
     }
     setLoading(true);
+    setResult(null);
 
     try {
       const response = await fetch("/api/generate-shortstory", {
@@ -56,7 +57,7 @@ export default function Home() {
         {!loading ? (
           //display form
           <form onSubmit={onSubmit}>
-          <label>What does the Protagonist do for work?*</label>
+          <label>What does the character do for work?*</label>
           <input
             type="text"
             required
@@ -74,8 +75,8 @@ export default function Home() {
             onChange={(e) => setConflict(e.target.value)}
           >
             <option value="emotional">Emotional</option>
-            <option value="violent">Violent</option>
-            <option value="financial">Financial</option>
+            <option value="funny">Funny</option>
+            <option value="money">Money</option>
           </select>
 
           <label>What resolution does the story have?</label>

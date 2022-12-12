@@ -59,7 +59,7 @@ export default function Home() {
               <option value="silly">Silly</option>
               <option value="gross">Gross</option>
             </select>
-            <input type="submit" value="Create Dad Joke" />
+            <input type="submit" value="Create Jokes" />
         </form>
         ) : 
           // display loading image and link to reset

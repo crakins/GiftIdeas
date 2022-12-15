@@ -3,7 +3,9 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./shortstory.module.css";
 import { VscBook } from 'react-icons/vsc';
-
+import HeadComponent from '../components/Head';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer/footer';
 
 export default function Home() {
   const [protagonist, setProtagonist] = useState();
@@ -42,10 +44,8 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Short Story Engine</title>
-        <link rel="icon" href="/book.png" />
-      </Head>
+      <HeadComponent />
+      <Nav />
 
       <main className={styles.main}>
       <VscBook 
@@ -121,6 +121,7 @@ export default function Home() {
         </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

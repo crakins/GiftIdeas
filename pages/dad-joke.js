@@ -1,6 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import HeadComponent from '../components/Head';
+import { FaRegLaughBeam } from 'react-icons/fa';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer/footer";
 
 export default function Home() {
   const [topic, setTopic] = useState("");
@@ -36,13 +40,14 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Funny Dad Jokes</title>
-        <link rel="icon" href="/robot.png" />
-      </Head>
+      <HeadComponent />
+      <Nav />
 
       <main className={styles.main}>
-        <img src="/robot.png" className={styles.icon} />
+      <FaRegLaughBeam 
+        size='100px' 
+        color='green'
+        />
         <h3>Joke Machine</h3>
 
         {!loading ? (
@@ -80,6 +85,7 @@ export default function Home() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

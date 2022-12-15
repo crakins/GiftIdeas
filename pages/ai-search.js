@@ -2,6 +2,9 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import { AiOutlineRobot } from 'react-icons/ai';
+import HeadComponent from '../components/Head';
+import Nav from '../components/Nav';
+import Footer from "../components/Footer/footer";
 
 export default function Home() {
   const [topic, setTopic] = useState("");
@@ -54,10 +57,8 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>AI Search</title>
-        <link rel="icon" href="/robot.png" />
-      </Head>
+      <HeadComponent />
+      <Nav />
 
       <main className={styles.main}>
       <AiOutlineRobot 
@@ -105,6 +106,7 @@ export default function Home() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

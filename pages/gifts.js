@@ -3,6 +3,9 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import { TbChristmasTree } from 'react-icons/tb';
+import HeadComponent from '../components/Head';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer/footer';
 
 
 export default function Home() {
@@ -43,10 +46,8 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Last Minute Gift Ideas</title>
-        <link rel="icon" href="/gift.png" />
-      </Head>
+      <HeadComponent />
+      <Nav />
 
       <main className={styles.main}>
       <TbChristmasTree 
@@ -132,6 +133,7 @@ export default function Home() {
         </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

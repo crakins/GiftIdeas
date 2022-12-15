@@ -1,6 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import HeadComponent from '../components/Head';
+import { GiCat } from 'react-icons/gi';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer/footer";
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
@@ -22,13 +26,15 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Pet Name Generator</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+      <HeadComponent />
+      <Nav />
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
+      <GiCat 
+        size='100px' 
+        color='green'
+        />
+      
         <h3>Name my pet</h3>
         <form onSubmit={onSubmit}>
           <input
@@ -42,6 +48,7 @@ export default function Home() {
         </form>
         <div className={styles.result}>{result}</div>
       </main>
+      <Footer />
     </div>
   );
 }

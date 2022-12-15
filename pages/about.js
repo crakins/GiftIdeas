@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head';
 import Link from 'next/link';
 import styles from "./shortstory.module.css";
 import { AiOutlineRobot } from 'react-icons/ai';
@@ -9,7 +10,7 @@ import Footer from '../components/Footer/footer';
 
 function Index() {
     return (
-        <>
+        <div>
             <HeadComponent />
 
             <Nav />
@@ -20,14 +21,10 @@ function Index() {
                 color='blue'
                 />
             <h3>AI Powered Search</h3>
-            <Link href={"/gifts"}>Last Minute Gifts</Link>
-            <Link href={"/ai-search"}>AI Search</Link>
-            <Link href={"pets"}>Pet Name Generator</Link>
-            <Link href={"/dad-joke"}>Joke Machine</Link>
-            <Link href={"/short-story"}>Short Story Writer</Link>
+                <div>Powered by <a href="https://crakins.com">crakins.com</a></div>
             </main>
             <Footer />
-        </>
+        </div>
     );
 };
 

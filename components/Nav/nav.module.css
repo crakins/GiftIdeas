@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "ColfaxAI";
+    src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+        format("woff2"),
+      url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+.main,
+.main ul {
+  list-style-type: none;
+  top: 0;
+  margin-top: 0;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border: 1px solid #e7e7e7;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
+
+.main li {
+  float: left;
+}
+
+.main li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+
+/* Change the link color to #111 (black) on hover */
+.main li a:hover {
+  background-color: #04AA6D;
+}

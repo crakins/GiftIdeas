@@ -4,9 +4,10 @@ import Head from 'next/head';
 function HeadComponent() {
     return (
         <Head>
-                <title>AI Powered Search</title>
-                <link rel="icon" href="/RobotOutlined.png" />
-            </Head>
+            <title>AI Powered Search</title>
+            <link rel="icon" href="/RobotOutlined.png" />
+        </Head>
+        
     )
 };
 

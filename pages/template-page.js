@@ -6,7 +6,7 @@ import HeadComponent from '../components/Head';
 import Nav from '../components/Nav';
 import Footer from "../components/Footer/footer";
 
-export default function Home() {
+export default function Template() {
   const [topic, setTopic] = useState("");
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
@@ -22,6 +22,7 @@ export default function Home() {
     setLoading(true);
     setResult(null);
     setForm(false);
+    console.log(setForm)
 
     try {
       const response = await fetch("/api/generate-aisearch", {

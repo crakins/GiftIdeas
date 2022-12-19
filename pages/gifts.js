@@ -60,8 +60,12 @@ export default function Gifts() {
     };
 
     setResult(null);
-    setTopic(null);
     setForm(true);
+    setPriceMin(null);
+    setPriceMax(null);
+    setGender(null);
+    setAge(null);
+    setHobbies(null);
   }
 
   return (

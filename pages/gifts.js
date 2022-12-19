@@ -6,6 +6,7 @@ import { TbChristmasTree } from 'react-icons/tb';
 import HeadComponent from '../components/Head';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer/footer';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
 export default function Gifts() {
@@ -17,57 +18,9 @@ export default function Gifts() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState(true);
   const [result, setResult] = useState();
+  const [isCopied, setIsCopied] = useState(false);
 
-  async function onSubmit(event) {
-    event.preventDefault();
-
-    if(loading) { 
-      return;
-    }
-    setLoading(true);
-    setResult(null);
-    setForm(false);
-
-    try {
-      const response = await fetch("/api/generate-gifts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ priceMin, priceMax, gender, age, hobbies }),
-      });
-      const data = await response.json();
-      setResult(data.result.replaceAll('\n', '<br />'));
-    } catch (e) {
-      alert('Failed to generate ideas, try later');
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function refineSearch() {
-    if(loading) {
-      return;
-    };
-
-    setResult(null);
-    setForm(true);
-  }
-
-  function resetSearch() {
-    if(loading) {
-      return;
-    };
-
-    setResult(null);
-    setForm(true);
-    setPriceMin(null);
-    setPriceMax(null);
-    setGender(null);
-    setAge(null);
-    setHobbies(null);
-  }
-
+  
   return (
     <div>
       <HeadComponent />
@@ -83,10 +36,10 @@ export default function Gifts() {
         {!form 
           ? (
                 <div>
-                <button onClick={refineSearch}>
+                <button className={styles.button} onClick={refineSearch}>
                   Refine Search
-                </button>
-                <button onClick={resetSearch}>
+                </button> &nbsp;
+                <button className={styles.button} onClick={resetSearch}>
                   New Search
                 </button>
               </div>
@@ -153,15 +106,22 @@ export default function Gifts() {
         {loading && ( // display loading image and link to reset form
           <div>
               <img src="/loading.gif" className={styles.center} />
-              <h6>We are loading your last minute gift ideas!</h6>
+              <h6>We are loading your gift ideas!</h6>
           </div> 
         )}
         
         {result && (
           <>
-            <div
-                className={styles.result}
-                dangerouslySetInnerHTML={{ __html: result }} />
+            <div className={styles.result}>
+              <div className={styles.right}>
+              <button className={styles.button} onClick={handleCopyClick}>
+                <span>{isCopied ? 'Copied!' : 'Copy'}</span>
+              </button>
+              </div>
+              <div
+                  dangerouslySetInnerHTML={{ __html: result }}
+              />
+            </div>
           </>
         )}
         
@@ -171,4 +131,70 @@ export default function Gifts() {
       <Footer />
     </div>
   );
+
+  async function onSubmit(event) {
+    event.preventDefault();
+
+    if(loading) { 
+      return;
+    }
+    setLoading(true);
+    setResult(null);
+    setForm(false);
+    setIsCopied(false);
+
+    try {
+      const response = await fetch("/api/generate-gifts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ priceMin, priceMax, gender, age, hobbies }),
+      });
+      const data = await response.json();
+      setResult(data.result.replaceAll('\n', '<br />'));
+    } catch (e) {
+      alert('Failed to generate ideas, try later');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function refineSearch() {
+    if(loading) {
+      return;
+    };
+
+    setResult(null);
+    setForm(true);
+  }
+
+  function resetSearch() {
+    if(loading) {
+      return;
+    };
+
+    setResult(null);
+    setForm(true);
+    setPriceMin(null);
+    setPriceMax(null);
+    setGender(null);
+    setAge(null);
+    setHobbies(null);
+  }
+
+  async function copyTextToClipboard(text) {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+    
+  }
+
+  function handleCopyClick() {
+    copyTextToClipboard(result.replaceAll('<br />', '\n'));
+    setIsCopied(true);
+  }
+
 }

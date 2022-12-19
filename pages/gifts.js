@@ -46,7 +46,7 @@ export default function Gifts() {
             ) 
           : (
             <form onSubmit={onSubmit}>
-              <label>For who is the gift?</label>
+              <label>For who is the gift?<span className={styles.required}>*</span></label>
               <select
                 name="gender"
                 placeholder='Select Gender'
@@ -57,7 +57,7 @@ export default function Gifts() {
                 <option value="woman">Female</option>
               </select>
 
-              <label>Age*</label>
+              <label>Age<span className={styles.required}>*</span></label>
               <input
                 type="number"
                 required
@@ -69,7 +69,7 @@ export default function Gifts() {
                 onChange={(e) => setAge(Number.parseInt(e.target.value))}
               />
 
-              <label>Price from*</label>
+              <label>Price minimum<span className={styles.required}>*</span></label>
               <input
                 type="number"
                 required
@@ -80,7 +80,7 @@ export default function Gifts() {
                 onChange={(e) => setPriceMin(Number.parseInt(e.target.value))}
               />
 
-              <label>Price to*</label>
+              <label>Price maximum<span className={styles.required}>*</span></label>
               <input
                 type="number"
                 required

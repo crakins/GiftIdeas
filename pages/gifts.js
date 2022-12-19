@@ -152,12 +152,11 @@ export default function Gifts() {
 
         {loading && ( // display loading image and link to reset form
           <div>
-              <img src="/loading.gif" className={styles.loading} />
+              <img src="/loading.gif" className={styles.center} />
               <h6>We are loading your last minute gift ideas!</h6>
           </div> 
         )}
         
-
         {result && (
           <>
             <div
@@ -165,6 +164,9 @@ export default function Gifts() {
                 dangerouslySetInnerHTML={{ __html: result }} />
           </>
         )}
+        
+        
+
       </main>
       <Footer />
     </div>

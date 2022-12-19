@@ -100,15 +100,13 @@ export default function Home() {
 
         {loading && (
           <div>
-            <img src="/loading.gif" className={styles.loading} />
+            <img src="/loading.gif" className={styles.center} />
             <h6>AI is answering your question..</h6>
           </div>
         )}
       
         {result && (
-
           <>
-            
             <div
                 className={styles.result}
                 dangerouslySetInnerHTML={{ __html: result }} />

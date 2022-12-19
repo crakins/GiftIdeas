@@ -99,7 +99,7 @@ export default function Gifts() {
                 value={hobbies}
                 onChange={(e) => setHobbies(e.target.value)}
               />
-              <input type="submit" value="Generate Gift Ideas" />
+              <input className={styles.button} type="submit" value="Generate Gift Ideas" />
             </form>
           ) }
 

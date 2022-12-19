@@ -46,7 +46,10 @@ export default function Home() {
           />
           <input type="submit" value="Generate names" />
         </form>
-        <div className={styles.result}>{result}</div>
+        
+        {result &&(
+          <div className={styles.result}>{result}</div>
+        )}
       </main>
       <Footer />
     </div>

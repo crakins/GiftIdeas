@@ -75,14 +75,9 @@ export default function Home() {
         }        
 
         {result && (
-
-          <><div className={styles.result}>
-              
-            </div>
             <div
                 className={styles.result}
                 dangerouslySetInnerHTML={{ __html: result }} />
-          </>
         )}
       </main>
       <Footer />

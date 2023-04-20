@@ -66,6 +66,7 @@
   border-radius: 4px;
   margin-bottom: 12px;
   margin-top: 4px;
+  -webkit-appearance: none;
 }
 .main .loading {
   align-self: center;
@@ -84,14 +85,37 @@
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
-}
-.main .result {
-  font-weight: normal;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  -webkit-appearance: none;
 }
 
 .main .heroImage {
   width: 100px;
   margin-top: 20px;
+}
+
+.main .result {
+  font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(211, 212, 237);
+  width: 90%;
+}
+.main .right {
+  float: right;
+  padding: 10px;
+  margin-top: 0px;
+}
+main .button {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-appearance: none;
 }

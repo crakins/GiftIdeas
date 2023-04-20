@@ -19,6 +19,7 @@
   line-height: 24px;
   color: #353740;
   font-family: "ColfaxAI", Helvetica, sans-serif;
+  -webkit-appearance: none;
 }
 .main {
   display: flex;
@@ -59,11 +60,19 @@
   border-radius: 4px;
   margin-bottom: 12px;
   margin-top: 4px;
+  -webkit-appearance: none;
 }
 .main .loading {
   align-self: center;
   margin-top: 10px;
   width: 200px;
+}
+.main .center {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 .main ::placeholder {
   color: #8e8ea0;
@@ -80,11 +89,35 @@
 }
 .main .result {
   font-weight: normal;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
+  padding-top: 80px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(211, 237, 220);
+  width: 90%;
 }
-
+.main .right {
+  float: right;
+  padding: 10px;
+  margin-top: 0px;
+}
+main .button {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+}
 .main .heroImage {
   width: 100px;
   margin-top: 20px;
+}
+.main .required{
+  color: red;
 }
